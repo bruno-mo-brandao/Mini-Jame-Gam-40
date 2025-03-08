@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbi33xc3keubn"]
+
+[ext_resource type="Script" path="res://Scripts/turret.gd" id="1_lqf7m"]
+[ext_resource type="PackedScene" uid="uid://rhyrsjtk118s" path="res://Scenes/bullet.tscn" id="2_ugj4x"]
+[ext_resource type="Texture2D" uid="uid://cpiwfaelyqlvx" path="res://Sprites/rock.png" id="3_rdu4w"]
+[ext_resource type="Texture2D" uid="uid://352kuw0e34q1" path="res://Sprites/turret3.png" id="4_p2k73"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_lqf7m")
+BULLET = ExtResource("2_ugj4x")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_rdu4w")
+
+[node name="TurretSprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_p2k73")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+
+[node name="Timer" type="Timer" parent="RayCast2D"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="RayCast2D/Timer" to="." method="_on_timer_timeout"]
