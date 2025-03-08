@@ -29,16 +29,16 @@ func initiate_build_mode(tower_type):
 func update_tower_preview():
 	var mouse_position = get_global_mouse_position()
 	var current_tile = get_node("TowerExclusion").local_to_map(mouse_position)
-	var title_position = get_node("TowerExclusion").map_to_local(current_tile)
+	var tile_position = get_node("TowerExclusion").map_to_local(current_tile)
 	print((get_node("TowerExclusion").get_cell_source_id(current_tile)))
 	
-	if get_node("TowerExclusion").get_cell_source_id(current_tile) != -1:
-		get_node("UI").update_tower_preview(title_position, "ad54ff3c")
+	if get_node("TowerExclusion").get_cell_source_id(current_tile) == -1:
+		get_node("UI").update_tower_preview(tile_position, "ad54ff3c")
 		build_valid = true 
-		build_location = title_position
+		build_location = tile_position
 	
 	else:
-		get_node("UI").update_tower_preview(title_position, "adff4545")
+		get_node("UI").update_tower_preview(tile_position, "adff4545")
 		build_valid = false
 		
 
