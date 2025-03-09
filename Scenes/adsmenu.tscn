@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://ftoib5s05cok"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_1b6dq"]
+[ext_resource type="Texture2D" uid="uid://ws3ctwjjx48p" path="res://Sprites/table.png" id="2_18pj3"]
+[ext_resource type="AudioStream" uid="uid://tsapn8u8c68a" path="res://sounds/buttonclick.mp3" id="3_3w605"]
+[ext_resource type="AudioStream" uid="uid://buwpxmxdtoyn3" path="res://sounds/buttonhover.mp3" id="4_pvycc"]
+[ext_resource type="FontFile" uid="uid://by5bx7j8cwyuq" path="res://fonts/Barque-Regular.otf" id="5_5bpwo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddxil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3m27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni8vq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqnvk"]
+
+[node name="adsmenu" type="Node2D"]
+script = ExtResource("1_1b6dq")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+scale = Vector2(5, 5)
+texture = ExtResource("2_18pj3")
+
+[node name="AudioStreamPlayerClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3w605")
+
+[node name="AudioStreamPlayerHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pvycc")
+
+[node name="Settings" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1107.0
+offset_top = 10.0
+offset_right = 1146.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.285156, 0.164063, 0.144531, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("5_5bpwo")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ddxil")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q3m27")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ni8vq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fqnvk")
+text = "Back"
+
+[node name="ads" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

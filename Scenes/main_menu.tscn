@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=3 uid="uid://dtyc2wqv38dhb"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_2rxdn"]
+[ext_resource type="FontFile" uid="uid://by5bx7j8cwyuq" path="res://fonts/Barque-Regular.otf" id="3_tpvj7"]
+[ext_resource type="AudioStream" uid="uid://tsapn8u8c68a" path="res://sounds/buttonclick.mp3" id="4_wk4mu"]
+[ext_resource type="AudioStream" uid="uid://buwpxmxdtoyn3" path="res://sounds/buttonhover.mp3" id="5_7huke"]
+
+[sub_resource type="Gradient" id="Gradient_yg0xd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5d3q4"]
+gradient = SubResource("Gradient_yg0xd")
+
+[sub_resource type="Gradient" id="Gradient_68dj6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_njdfu"]
+gradient = SubResource("Gradient_68dj6")
+fill_from = Vector2(0.675214, 0.388889)
+fill_to = Vector2(0.470085, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sc4qm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cogb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3a2sg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fkk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_assdr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pb4xd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vjxp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_seae0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vhyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pspqx"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_2rxdn")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(157, 159)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_5d3q4")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(625, 142)
+texture = SubResource("GradientTexture2D_njdfu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 318.0
+offset_top = 331.0
+offset_right = 886.0
+offset_bottom = 777.0
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Ads")
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.286275, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_tpvj7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sc4qm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cogb5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a2sg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1fkk2")
+text = "Play"
+
+[node name="Ads" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../HOW TO PLAY")
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.286275, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_tpvj7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_assdr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cogb5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a2sg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pb4xd")
+text = "ADS"
+
+[node name="HOW TO PLAY" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Ads")
+focus_neighbor_bottom = NodePath("../Settings")
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.286275, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_tpvj7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_assdr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cogb5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a2sg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pb4xd")
+text = "HOW TO PLAY"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../HOW TO PLAY")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.286275, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_tpvj7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8vjxp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cogb5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a2sg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pb4xd")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Play")
+theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
+theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.285156, 0.164063, 0.144531, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_tpvj7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_seae0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8vhyl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a2sg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pspqx")
+text = "Quit"
+
+[node name="AudioStreamPlayerClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wk4mu")
+
+[node name="AudioStreamPlayerHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7huke")
+
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_one_player_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_one_player_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Ads" to="." method="_on_two_players_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Ads" to="." method="_on_two_players_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HOW TO PLAY" to="." method="_on_how_to_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HOW TO PLAY" to="." method="_on_how_to_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3b8ncoqv86i1"
+path="res://.godot/imported/Tales of the Traveler by powerful-beat-studio.mp3-2260c719e1d30614c067fdfc91fcb252.mp3str"
+
+[deps]
+
+source_file="res://music/Tales of the Traveler by powerful-beat-studio.mp3"
+dest_files=["res://.godot/imported/Tales of the Traveler by powerful-beat-studio.mp3-2260c719e1d30614c067fdfc91fcb252.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
