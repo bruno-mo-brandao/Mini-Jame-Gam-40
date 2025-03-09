@@ -31,6 +31,7 @@ func _physics_process(delta):
 				shoot()
 
 func shoot():
+	print("SHOOT")
 	ray_cast_2d.enabled = false
 	if BULLET:
 		var bullet = BULLET.instantiate()
@@ -45,6 +46,7 @@ func find_target():
 	var new_target = null
 	if get_tree().has_group("Enemy"):
 		new_target = get_tree().get_nodes_in_group("Enemy")[0]
+	print(str(new_target))
 	return new_target
 
 
