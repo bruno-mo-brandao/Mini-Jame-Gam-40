@@ -1,18 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsvj08mrvqgu2"]
+[gd_scene load_steps=10 format=3 uid="uid://bjt4nos5srfgl"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_hjbno"]
+[ext_resource type="Texture2D" uid="uid://cpiwfaelyqlvx" path="res://Sprites/rock.png" id="2_00ed6"]
 [ext_resource type="FontFile" uid="uid://by5bx7j8cwyuq" path="res://fonts/Barque-Regular.otf" id="2_5sbsf"]
 [ext_resource type="AudioStream" uid="uid://tsapn8u8c68a" path="res://sounds/buttonclick.mp3" id="3_chvep"]
 [ext_resource type="AudioStream" uid="uid://buwpxmxdtoyn3" path="res://sounds/buttonhover.mp3" id="4_3ajg3"]
-
-[sub_resource type="Gradient" id="Gradient_evet1"]
-offsets = PackedFloat32Array(0.771186, 1)
-colors = PackedColorArray(0.796078, 0.52549, 0.4, 1, 0.286275, 0.164706, 0.145098, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3ax0"]
-gradient = SubResource("Gradient_evet1")
-fill = 2
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_huh43"]
 
@@ -35,8 +27,9 @@ script = ExtResource("1_hjbno")
 metadata/_edit_use_anchors_ = true
 
 [node name="bg2" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = SubResource("GradientTexture2D_w3ax0")
+position = Vector2(-4, -4)
+scale = Vector2(8.375, 8.375)
+texture = ExtResource("2_00ed6")
 
 [node name="output" type="Label" parent="."]
 layout_mode = 1
@@ -51,8 +44,8 @@ offset_right = 123.0
 offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.847059, 0.847059, 0.847059, 1)
-theme_override_colors/font_outline_color = Color(0.285156, 0.164063, 0.144531, 1)
+theme_override_colors/font_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_5sbsf")
 theme_override_font_sizes/font_size = 50
@@ -72,9 +65,9 @@ offset_right = 68.5
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
-theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
-theme_override_colors/font_outline_color = Color(0.285156, 0.164063, 0.144531, 1)
+theme_override_colors/font_hover_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_color = Color(0.446365, 0.671887, 0.355863, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_5sbsf")
 theme_override_font_sizes/font_size = 50
@@ -98,9 +91,9 @@ offset_right = 67.0
 offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0.964706, 0.890196, 0.858824, 1)
-theme_override_colors/font_color = Color(0.796078, 0.52549, 0.4, 1)
-theme_override_colors/font_outline_color = Color(0.286275, 0.164706, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_color = Color(0.446365, 0.671887, 0.355863, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_5sbsf")
 theme_override_font_sizes/font_size = 50

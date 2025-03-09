@@ -1,8 +1,11 @@
 extends Node2D
 
 @export var BULLET: PackedScene = null
-
+var range = [100,200,250]
+var damage = [1,2,3]
+var cooldown = [2,1.75,1.5]
 var target: Node2D = null
+var turret_damage
 
 @onready var turret_sprite: Sprite2D = $TurretSprite
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
@@ -10,6 +13,11 @@ var target: Node2D = null
 
 
 func _ready():
+	var turret_nr = (int(str(get_tree().root.get_child(0))[6]))-1
+	ray_cast_2d.target_position.x = range[turret_nr]
+	timer.wait_time=cooldown[turret_nr]
+	turret_damage=damage[turret_nr]
+	
 	await(get_tree().process_frame)
 	target = find_target()
 
