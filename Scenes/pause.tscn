@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjt4nos5srfgl"]
+
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_hjbno"]
+[ext_resource type="Texture2D" uid="uid://cpiwfaelyqlvx" path="res://Sprites/rock.png" id="2_00ed6"]
+[ext_resource type="FontFile" uid="uid://by5bx7j8cwyuq" path="res://fonts/Barque-Regular.otf" id="2_5sbsf"]
+[ext_resource type="AudioStream" uid="uid://tsapn8u8c68a" path="res://sounds/buttonclick.mp3" id="3_chvep"]
+[ext_resource type="AudioStream" uid="uid://buwpxmxdtoyn3" path="res://sounds/buttonhover.mp3" id="4_3ajg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_huh43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ybqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvlen"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hi8k7"]
+
+[node name="pausescreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjbno")
+metadata/_edit_use_anchors_ = true
+
+[node name="bg2" type="Sprite2D" parent="."]
+position = Vector2(-4, -4)
+scale = Vector2(8.375, 8.375)
+texture = ExtResource("2_00ed6")
+
+[node name="output" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -111.0
+offset_right = 123.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_5sbsf")
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Mainmenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -8.0
+offset_right = 68.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_color = Color(0.446365, 0.671887, 0.355863, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_5sbsf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_huh43")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ybqh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dvlen")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hi8k7")
+text = "BACK
+"
+
+[node name="QUIT" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 59.0
+offset_right = 67.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.530533, 0.8, 0.424, 1)
+theme_override_colors/font_color = Color(0.446365, 0.671887, 0.355863, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_5sbsf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_huh43")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ybqh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dvlen")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hi8k7")
+text = "QUIT
+"
+
+[node name="AudioStreamPlayerClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_chvep")
+
+[node name="AudioStreamPlayerHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3ajg3")
+
+[connection signal="mouse_entered" from="Mainmenu" to="." method="_on_mainmenu_mouse_entered"]
+[connection signal="pressed" from="Mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="mouse_entered" from="QUIT" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]

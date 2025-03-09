@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkpw08pybwh6c"]
+
+[ext_resource type="Script" path="res://Sprites/ads.gd" id="1_1t00l"]
+[ext_resource type="Texture2D" uid="uid://brmllw13x2ys6" path="res://ads/1.png" id="2_5u47v"]
+[ext_resource type="Texture2D" uid="uid://brlf1gs3ficx6" path="res://ads/2.png" id="3_lycps"]
+[ext_resource type="Texture2D" uid="uid://dyoes7hawsult" path="res://ads/3.png" id="4_gwst5"]
+[ext_resource type="Script" path="res://Scripts/object.gd" id="4_o8xaf"]
+[ext_resource type="Texture2D" uid="uid://dvwdvrbnoo2ya" path="res://Sprites/close.png" id="4_v4pfq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_peorf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5u47v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lycps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gwst5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rl7w"]
+size = Vector2(300, 150)
+
+[node name="Ads" type="Area2D" groups=["ad"]]
+position = Vector2(150, 75)
+script = ExtResource("1_1t00l")
+
+[node name="Object" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_peorf")
+speed_scale = 0.0
+script = ExtResource("4_o8xaf")
+
+[node name="TextureButton" type="TextureButton" parent="Object"]
+offset_left = 132.0
+offset_top = -69.0
+offset_right = 172.0
+offset_bottom = -29.0
+scale = Vector2(0.3, 0.3)
+
+[node name="TextureRect" type="TextureRect" parent="Object/TextureButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_v4pfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1rl7w")
+
+[connection signal="pressed" from="Object/TextureButton" to="." method="_on_texture_button_pressed"]
