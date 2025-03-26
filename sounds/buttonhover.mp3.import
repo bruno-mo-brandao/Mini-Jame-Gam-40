@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://buwpxmxdtoyn3"
+uid="uid://duv78pl5ipyq7"
 path="res://.godot/imported/buttonhover.mp3-cb7b92bc2a0370987c77f3778f9fb7dd.mp3str"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/buttonhover.mp3-cb7b92bc2a0370987c77f3778f9fb
 [params]
 
 loop=false
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

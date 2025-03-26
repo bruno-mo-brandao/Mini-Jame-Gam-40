@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-const menu_music = preload("res://music/MountainTavern by TabletopAudio.mp3")
+#const menu_music = preload("res://music/MountainTavern by TabletopAudio.mp3")
 
 func playMusic(music: AudioStream, volume = 0.0):
 	if stream == music:
@@ -11,4 +11,5 @@ func playMusic(music: AudioStream, volume = 0.0):
 	play()
 
 func playMenuMusic():
-	playMusic(menu_music)
+	pass
+	#playMusic(menu_music)
