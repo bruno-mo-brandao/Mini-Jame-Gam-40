@@ -17,7 +17,7 @@ func _ready():
 		
 func _process(delta):
 	score = score + 1
-	print (score)
+	#print (score)
 	if build_mode:
 		update_tower_preview()
 	time = time + delta	
@@ -48,7 +48,7 @@ func newad():
 	var new_ad = load("res://Scenes/ads.tscn").instantiate()
 	var posX = randi_range(0, 1250)
 	var posY = randi_range(100, 650)
-	print("AD" + str(posX) + " " + str(posY))
+	#print("AD" + str(posX) + " " + str(posY))
 	new_ad.position = Vector2(posX, posY)
 	get_node("ads").add_child(new_ad, true)
 
@@ -70,7 +70,7 @@ func update_tower_preview():
 	var mouse_position = get_global_mouse_position()
 	var current_tile = get_node("TowerExclusion").local_to_map(mouse_position)
 	var tile_position = get_node("TowerExclusion").map_to_local(current_tile)
-	print((get_node("TowerExclusion").get_cell_source_id(current_tile)))
+	#print((get_node("TowerExclusion").get_cell_source_id(current_tile)))
 	
 	if get_node("TowerExclusion").get_cell_source_id(current_tile) == -1:
 		get_node("UI").update_tower_preview(tile_position, "ad54ff3c")

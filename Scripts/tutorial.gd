@@ -20,7 +20,7 @@ func newad():
 	var new_ad = load("res://Scenes/ads.tscn").instantiate()
 	var posX = randi_range(0, 1000)
 	var posY = randi_range(100, 650)
-	print("AD" + str(posX) + " " + str(posY))
+	#print("AD" + str(posX) + " " + str(posY))
 	new_ad.position = Vector2(posX, posY)
 	get_node("ads").add_child(new_ad, true)
 

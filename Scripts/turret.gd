@@ -25,10 +25,13 @@ func _physics_process(delta):
 	if target != null:
 		var angle_to_target = global_position.direction_to(target.global_position).angle()
 		ray_cast_2d.global_rotation = angle_to_target
-		if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().is_in_group("Enemy"):
+		#print("ENTERED:" + str(ray_cast_2d.is_colliding()))
+		if ray_cast_2d.is_colliding():# and ray_cast_2d.get_collider().is_in_group("Enemy"):			
 			turret_sprite.rotation = angle_to_target
 			if timer.is_stopped():
 				shoot()
+	else:
+		find_target()
 
 func shoot():
 	print("SHOOT")
@@ -46,7 +49,7 @@ func find_target():
 	var new_target = null
 	if get_tree().has_group("Enemy"):
 		new_target = get_tree().get_nodes_in_group("Enemy")[0]
-	print(str(new_target))
+	print("TARGET:" + str(new_target))
 	return new_target
 
 
