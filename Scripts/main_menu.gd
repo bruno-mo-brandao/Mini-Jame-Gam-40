@@ -3,18 +3,10 @@ func _ready():
 	pass
 	#AudioPlayer.playMenuMusic()
 
-func _on_two_players_pressed():
-	#$AudioStreamPlayerClick.play()
-	get_tree().change_scene_to_file("res://scenes/adsmenu.tscn")
-
 func _on_two_players_mouse_entered():
 	#$AudioStreamPlayerHover.play()
 	pass
 
-
-func _on_exit_pressed():
-	#$AudioStreamPlayerClick.play()
-	get_tree().quit()
 	
 func _on_quit_mouse_entered():
 	#$AudioStreamPlayerHover.play()
@@ -28,9 +20,6 @@ func _on_settings_pressed():
 func _on_settings_mouse_entered():
 	#$AudioStreamPlayerHover.play()
 	pass
-
-
-	
 
 
 func _on_one_player_mouse_entered():
@@ -48,3 +37,13 @@ func _on_how_to_play_pressed():
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_ads_pressed() -> void:
+	#$AudioStreamPlayerClick.play()
+	get_tree().change_scene_to_file("res://scenes/adsmenu.tscn")
+
+
+func _on_quit_pressed() -> void:
+	#$AudioStreamPlayerClick.play()
+	get_tree().quit()
