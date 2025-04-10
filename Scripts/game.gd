@@ -6,18 +6,22 @@ var build_location
 var build_type 
 var build_tile
 var score = 1
-
+var moneyS = 0
 var time = 0
 var timetoad = 10
 var adsinround = 10
-
+@onready var money: Label = $UI/HUD/Build/money
+@onready var pointslabel: Label = $UI/HUD/Build/pointslabel
 func _ready():
 	for i in get_tree().get_nodes_in_group("buildbutton"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 		
 func _process(delta):
 	score = score + 1
-	#print (score)
+	pointslabel.text = "Points: " + str(score)
+	moneyS = moneyS + 0.08
+	var moneyX = round(moneyS*pow(10,1))/pow(10,1)
+	money.text=str(moneyX) + "$"
 	if build_mode:
 		update_tower_preview()
 	time = time + delta	
@@ -38,6 +42,7 @@ func spawn():
 	var enemynr = randi_range(1, 3)
 	#print("Spawned: " + str(enemynr) + " Path: "+ str(pathnr))
 	var enemy = load("res://Scenes/enemy" + str(enemynr) +".tscn").instantiate()
+	enemy.add_to_group("Enemy")
 	#var enemy = load("res://Scenes/enemy1.tscn").instantiate()
 	get_node("Path"+str(pathnr)).add_child(enemy, true)
 	#get_node("Path1").add_child(enemy, true)
@@ -89,8 +94,31 @@ func cancel_build_mode():
 	get_node("UI/TowerPreview").free()
 	
 func verify_and_build():
-	if build_valid:
+	var isThereMoney = verifyMoney(build_type)
+	if build_valid and isThereMoney:
 		var new_tower = load("res://Scenes/" + build_type + ".tscn").instantiate()
 		new_tower.position = build_location
 		get_node("BoxOfTurrets").add_child(new_tower, true)
 		get_node("TowerExclusion").set_cell(build_tile, 2, Vector2(1, 0))
+
+func verifyMoney(type):
+	var typeA = str(type) + "1"
+	var typeint = str(typeA)[6]
+	if typeint == "1":
+		if moneyS > 20:
+			moneyS = moneyS-20
+			return true
+		else:
+			return false
+	elif typeint == "2":
+		if moneyS > 50:
+			moneyS = moneyS-50
+			return true
+		else:
+			return false
+	elif typeint == "3":
+		if moneyS > 100:
+			moneyS = moneyS-100
+			return true
+		else:
+			return false

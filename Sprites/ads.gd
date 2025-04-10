@@ -9,4 +9,5 @@ func _ready():
 	animated_sprite_2d.frame = imagerand
 		
 func _on_texture_button_pressed() -> void:
+	print(get_groups())
 	queue_free()

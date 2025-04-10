@@ -28,6 +28,7 @@ func _physics_process(delta):
 		#print("ENTERED:" + str(ray_cast_2d.is_colliding()))
 		if ray_cast_2d.is_colliding():# and ray_cast_2d.get_collider().is_in_group("Enemy"):			
 			turret_sprite.rotation = angle_to_target
+			print("COL")
 			if timer.is_stopped():
 				shoot()
 	else:
@@ -49,7 +50,7 @@ func find_target():
 	var new_target = null
 	if get_tree().has_group("Enemy"):
 		new_target = get_tree().get_nodes_in_group("Enemy")[0]
-	print("TARGET:" + str(new_target))
+	#print("TARGET:" + str(new_target))
 	return new_target
 
 

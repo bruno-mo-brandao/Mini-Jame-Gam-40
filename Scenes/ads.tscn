@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brlf1gs3ficx6" path="res://ads/2.png" id="3_lycps"]
 [ext_resource type="Texture2D" uid="uid://dyoes7hawsult" path="res://ads/3.png" id="4_gwst5"]
 [ext_resource type="Script" path="res://Scripts/object.gd" id="4_o8xaf"]
-[ext_resource type="Texture2D" uid="uid://dvwdvrbnoo2ya" path="res://Sprites/close.png" id="4_v4pfq"]
+[ext_resource type="Texture2D" uid="uid://dvwdvrbnoo2ya" path="res://sprites/close.png" id="4_v4pfq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_peorf"]
 animations = [{
