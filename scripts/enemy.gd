@@ -12,6 +12,13 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	move(delta)
+	checkRatio()
 	
 func move(delta):
 	set_progress(get_progress() + enemy_speed * delta )
+	
+func checkRatio():
+	if progress_ratio > 0.98:
+		print ("B")
+		var node = get_node("Game")
+		node.damage()

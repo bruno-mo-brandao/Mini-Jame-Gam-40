@@ -10,14 +10,26 @@ var moneyS = 0
 var time = 0
 var timetoad = 10
 var adsinround = 10
+var hp = 20000
+@onready var hpLabel: Label = $UI/HUD/Build/hp
 @onready var money: Label = $UI/HUD/Build/money
 @onready var pointslabel: Label = $UI/HUD/Build/pointslabel
+
+
 func _ready():
 	for i in get_tree().get_nodes_in_group("buildbutton"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 		
 func _process(delta):
 	score = score + 1
+	if hp > 999:
+		var milhares = floor(hp/1000)
+		var centenas = floor((hp - (milhares * 1000))/100)
+		hpLabel.text = "HP: " + str(milhares) + "."+ str(centenas) + "k"
+	elif hp > 0:
+		hpLabel.text = "HP: " + str(hp)
+	else:
+		gameover()
 	pointslabel.text = "Points: " + str(score)
 	moneyS = moneyS + 0.08
 	var moneyX = round(moneyS*pow(10,1))/pow(10,1)
@@ -35,7 +47,8 @@ func _process(delta):
 		if adsinround == 0:
 			adsinround = 10
 			timetoad = timetoad -1
-
+func gameover():
+	pass
 
 func spawn():
 	var pathnr = randi_range(1, 8)
@@ -122,3 +135,6 @@ func verifyMoney(type):
 			return true
 		else:
 			return false
+			
+func damage():
+	hp = hp - 1
