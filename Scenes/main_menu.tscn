@@ -31,19 +31,21 @@ theme_override_colors/font_hover_color = Color(0.530533, 0.8, 0.424, 1)
 theme_override_colors/font_color = Color(0.446365, 0.671887, 0.355863, 1)
 theme_override_colors/font_outline_color = Color(0.121569, 0.164706, 0.145098, 1)
 theme_override_constants/outline_size = 25
-text = "play"
+text = "PLAY"
 
 [node name="ADS" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "ADS"
 
 [node name="HOW TO PLAY" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "HOW TO PLAY"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-text = "Settings"
+text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2

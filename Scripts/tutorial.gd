@@ -1,8 +1,8 @@
 extends Node2D
 
 var time = 0
-var timetoad = 10
-var adsinround = 10
+var timetoad = 8
+var adsinround = 8
 
 func _physics_process(delta: float) -> void:
 	time = time + delta	
@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		time = 0
 		newad()
 		if adsinround == 0:
-			adsinround = 10
+			adsinround = 8
 			timetoad = timetoad -1
 
 func newad():

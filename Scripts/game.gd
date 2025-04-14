@@ -8,20 +8,25 @@ var build_tile
 var score = 1
 var moneyS = 0
 var time = 0
-var timetoad = 10
-var adsinround = 10
-var hp = 20000
+var timetoad = 8
+var adsinround = 12
+var hp = 5000
 @onready var hpLabel: Label = $UI/HUD/Build/hp
 @onready var money: Label = $UI/HUD/Build/money
 @onready var pointslabel: Label = $UI/HUD/Build/pointslabel
-
+@onready var golabel: Label = $GameOverScreen/VBoxContainer/Label
+@onready var game_over_screen: ColorRect = $GameOverScreen
+var gameovervar = false
 
 func _ready():
+	Engine.time_scale = 1
+	game_over_screen.hide()
 	for i in get_tree().get_nodes_in_group("buildbutton"):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 		
 func _process(delta):
-	score = score + 1
+	if not gameovervar:
+		score = score + 1
 	if hp > 999:
 		var milhares = floor(hp/1000)
 		var centenas = floor((hp - (milhares * 1000))/100)
@@ -31,7 +36,8 @@ func _process(delta):
 	else:
 		gameover()
 	pointslabel.text = "Points: " + str(score)
-	moneyS = moneyS + 0.08
+	if not gameovervar:
+		moneyS = moneyS + 0.08
 	var moneyX = round(moneyS*pow(10,1))/pow(10,1)
 	money.text=str(moneyX) + "$"
 	if build_mode:
@@ -48,6 +54,10 @@ func _process(delta):
 			adsinround = 10
 			timetoad = timetoad -1
 func gameover():
+	gameovervar = true
+	Engine.time_scale = 0
+	game_over_screen.show()
+	golabel.text = "Game Over!\n" + "You scored " + str(score)+ "points!"
 	pass
 
 func spawn():
@@ -138,3 +148,7 @@ func verifyMoney(type):
 			
 func damage():
 	hp = hp - 1
+
+
+func _on_retry_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

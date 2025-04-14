@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://ftoib5s05cok"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_1b6dq"]
-[ext_resource type="Texture2D" uid="uid://cpiwfaelyqlvx" path="res://Sprites/rock.png" id="2_4hf0m"]
-[ext_resource type="AudioStream" uid="uid://tsapn8u8c68a" path="res://sounds/buttonclick.mp3" id="3_3w605"]
-[ext_resource type="AudioStream" uid="uid://buwpxmxdtoyn3" path="res://sounds/buttonhover.mp3" id="4_pvycc"]
+[ext_resource type="Texture2D" uid="uid://cpiwfaelyqlvx" path="res://sprites/rock.png" id="2_4hf0m"]
+[ext_resource type="AudioStream" uid="uid://d1nn3gm84kcu2" path="res://sounds/buttonclick.mp3" id="3_3w605"]
+[ext_resource type="AudioStream" uid="uid://duv78pl5ipyq7" path="res://sounds/buttonhover.mp3" id="4_pvycc"]
 [ext_resource type="FontFile" uid="uid://by5bx7j8cwyuq" path="res://fonts/Barque-Regular.otf" id="5_5bpwo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddxil"]
